@@ -1,5 +1,7 @@
 package ru.job4j.dreamjob.model;
 
+import net.bytebuddy.asm.Advice;
+
 import java.time.LocalDateTime;
 import java.util.Map;
 import java.util.Objects;
@@ -16,7 +18,7 @@ public class Candidate {
     private int id;
     private String name;
     private String description;
-    private LocalDateTime creationDate = LocalDateTime.now();
+    private LocalDateTime creationDate;
     private int cityId;
 
     private int fileId;
@@ -28,6 +30,15 @@ public class Candidate {
         this.id = id;
         this.name = name;
         this.description = description;
+        this.cityId = cityId;
+        this.fileId = fileId;
+    }
+
+    public Candidate(int id, String name, String description, LocalDateTime creationDate, int cityId, int fileId) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.creationDate = creationDate;
         this.cityId = cityId;
         this.fileId = fileId;
     }
