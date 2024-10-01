@@ -65,7 +65,7 @@ class Sql2oUserRepositoryTest {
         var user2 = sql2oUserRepository.save(new User(0, "egor@mail.ru", "Egor1", "123456"));
         var savedUser1 = sql2oUserRepository.findByEmailAndPassword("egor@mail.ru", "12345");
         var savedUser2 = sql2oUserRepository.findByEmailAndPassword("egor@mail.ru", "123456");
-        assertThat(user2.get().getId()).isEqualTo(0);
+        assertThat(user2.isEmpty()).isTrue();
         assertThat(savedUser1).isEqualTo(user1);
         assertThat(savedUser2.isEmpty()).isTrue();
     }
